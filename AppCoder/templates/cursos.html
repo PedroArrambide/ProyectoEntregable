@@ -1,16 +1,13 @@
 {% extends 'padre.html' %}
 
-
 {% load static %}
-
 
 {% block contenidoQueCambia %}
 
-
-
-
-<h1>aca cursos</h1>
-<p> Se ha hereado todo desde la plantilla padre</p>
-<h3>en el hijo, inioc.html, casi no hay nada:)</h3>
-
+<h1>Lista de profesores</h1>
+<ul>
+    {%for c in curso%}
+    <li> {{c.nomre}}{{c.camada}}</li>
+    {%endfor%}
+</ul>
 {% endblock contenidoQueCambia %}

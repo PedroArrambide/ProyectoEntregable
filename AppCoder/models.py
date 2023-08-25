@@ -7,18 +7,21 @@ class Curso(models.Model):
     camada =models.IntegerField()
 
 class Estudiante(models.Model):
-    mombre = models.CharField(max_length=30)
-    apelldio = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
     email = models.EmailField()
 
 class Profesor(models.Model):
-    mombre = models.CharField(max_length=30)
-    apelldio = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+
+    def __str__(self):
+        return  self.nombre
     email = models.EmailField()
     profesion = models.CharField(max_length=30)
 
 class Entregable(models.Model):
-    mombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20)
     fecha_entrega= models.DateField()
     entregado = models.BooleanField()
 

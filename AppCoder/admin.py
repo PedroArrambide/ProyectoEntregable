@@ -2,7 +2,7 @@ from django.contrib import admin
 from AppCoder import models
 
 
-# Registramos los modelos
+# Registramos lo
 
 
 admin.site.register(models.Curso)

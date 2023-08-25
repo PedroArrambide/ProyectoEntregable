@@ -7,10 +7,17 @@
 {% block contenidoQueCambia %}
 
 
+<h1>Lista de estudiantes</h1>
 
+<ul>
+    {% for e in estudiantes %}
 
-<h1>aca estudiantes</h1>
-<p> Se ha hereado todo desde la plantilla padre</p>
-<h3>en el hijo, inioc.html, casi no hay nada:)</h3>
+    <li>{{e.nombre}},{{e.apellido}},{{e.email}}</li>
+
+    {% endfor %}
+
+</ul>
+
+<h3>para saber que estoy viendo bien</h3>
 
 {% endblock contenidoQueCambia %}

@@ -10,7 +10,15 @@
 
 
 <h1>aca entregables</h1>
-<p> Se ha hereado todo desde la plantilla padre</p>
+<ul>
+    {% for entregable in entregables %}
+
+    <li>{{entregable.nombre}},{{entregable.fecha_entrega}}</li>
+
+    {% endfor %}
+
+</ul>
+
 <h3>en el hijo, inioc.html, casi no hay nada:)</h3>
 
 {% endblock contenidoQueCambia %}
