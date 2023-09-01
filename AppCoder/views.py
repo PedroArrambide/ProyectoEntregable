@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.template import Template, Context
 from django.http import HttpResponse
-from .models import Curso, Entregable, Estudiante, Profesor
+from .models import Entregable, Estudiante, Profesor, Curso
+from .forms import ProfesorForm, EntregableForm, EstudianteForm, CursoSearchForm, CursoForm
 
 
 
@@ -14,18 +15,32 @@ def index(request):
 def inicio(request):
     return render(request, 'inicio.html')
 
-def cursos(request):
-    return render(request, 'cursos.html')
+def Crear_profesor(request):
+    if request.method == 'POST':
+        form = ProfesorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('AppCoder:inicio')
+    else:
+        form = ProfesorForm()  
 
-def profesores__(request):
-    return render(request, 'profesores.html')
+    return render(request, 'profesores_form.html', {'form': form})
+
 
 def profesores(request):
     profesores = Profesor.objects.all()
     return render(request, 'profesores.html',{'profesores':profesores})
 
-def estudiantes__(request):
-    return render(request, 'estudiantes.html')
+def Crear_estudiante(request):
+    if request.method == 'POST':
+        form = EstudianteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('AppCoder:inicio')
+    else:
+        form = EstudianteForm() 
+
+    return render(request, 'estudiantes_form.html', {'form': form})
 
 def estudiantes(request):
     estudiantes = Estudiante.objects.all()
@@ -33,15 +48,16 @@ def estudiantes(request):
 
 
 
-def entregable_form(request):
+def crear_entregable(request):
     if request.method == 'POST':
-        form = entregable_form(request.POST)
+        form = EntregableForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('Appcoder:inicio')
+            return redirect('AppCoder:inicio')
     else:
-        form = entregable_form()  
-    return render(request, 'entregables.html', {'form': form})
+        form = EntregableForm()  
+
+    return render(request, 'entregable_form.html', {'form': form})
 
 
 def entregables(request):
@@ -51,9 +67,25 @@ def entregables(request):
 
 def cursoformulario(request):
     if request.method == 'POST':
-        curso = curso(request.post["curso"],request.post["camada"])
-        curso.save()
-        return render(request, 'AppCoder:inicio.html')
+        form = CursoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('AppCoder:inicio')
+    else:
+        form = CursoForm() 
     
-    return render(request, "cursoformulario.html")
+    return render(request, "cursoformulario.html", {'form': form})
 
+def cursos(request):
+    cursos = Curso.objects.all()
+    return render(request, 'cursos.html',{'cursos':cursos})
+
+
+def buscar_cursos_por_nombre(request):
+    cursos = []
+    form = CursoSearchForm(request.GET)
+    if form.is_valid():
+        nombre = form.cleaned_data.get('nombre')  # Use 'cleaned_data' instead of 'cleaned_dta'
+        if nombre:
+            cursos = Curso.objects.filter(nombre__icontains=nombre)  # Use 'icontains' instead of 'incontains'
+    return render(request, 'buscar_cursos.html', {'form': form, 'cursos': cursos})

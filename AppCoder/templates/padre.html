@@ -21,11 +21,16 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'AppCoder:inicio' %}">inicio</a>
-                <a class="navbar-brand" href="{% url 'AppCoder:profesores' %}">profesores</a>
-                <a class="navbar-brand" href="{% url 'AppCoder:cursos' %}">cursos</a>
-                <a class="navbar-brand" href="{% url 'AppCoder:estudiantes' %}">estudiantes</a>
-                <a class="navbar-brand" href="{% url 'AppCoder:entregables' %}">entregables</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:inicio' %}" style="color: red;">Inicio</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:profesores' %}" style="color: blue">Profesores</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:cursos' %}" style="color: blue">Cursos</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:estudiantes' %}" style="color: blue">Estudiantes</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:entregables' %}" style="color: blue">Entregables</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:profesor-create' %}" style="color: red">Crear Profesor</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:entregable-create' %}" style=" color: red">Entregar</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:estudiante-create' %}" style=" color: red">Crear Estudiante</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:cursoformulario' %}" style=" color: red">Crear Curso</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:buscar-por-curso' %}" style=" color: greenyellow">Buscar Curso</a>
                 <a class="btn btn-primary" href="#NADAAUN">INICIAR</a>
             </div>
         </nav>

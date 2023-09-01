@@ -1,0 +1,33 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!DOCTYPE html>
+<HTml>
+<head>
+    <title>Buscar Cursos por nombre</title>
+</head>
+<body>
+    <h1> Buscar Cursos por Nombre </h1>
+    <form method="get" action="">
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if cursos %}
+    <h2> Resultados de la búsqueda: </h2>
+    <ul>
+        {% for curso in cursos %}
+        <li> {{ curso.nombre }} - Camada {{ curso.camada }} </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p> No hay cursos para mostrar con esa descripción.</p>
+    
+    {% endif %}
+
+</body>
+</html>
+{% endblock contenidoQueCambia %}   

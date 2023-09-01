@@ -4,10 +4,14 @@
 
 {% block contenidoQueCambia %}
 
-<h1>Lista de profesores</h1>
+<h1>Lista de Cursos</h1>
 <ul>
-    {%for c in curso%}
-    <li> {{c.nomre}}{{c.camada}}</li>
-    {%endfor%}
+    {% for curso in cursos %}
+    <li> {{curso.nombre}} , {{curso.camada}}</li>
+
+    {% endfor %}
 </ul>
-{% endblock contenidoQueCambia %}
+<h6>esto es para ver qeu salen otras cosas en el formulario</h6>
+
+{% endblock contenidoQueCambia %}   
+    
