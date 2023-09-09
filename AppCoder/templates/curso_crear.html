@@ -1,0 +1,13 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+{% block contenidoQueCambia %}
+
+<h1>Crear Curso desde Vistas</h1>
+
+<from action=""  method="POST">
+        {% csrf_token %}
+       {{form.as_p}}
+       <input  type="submit value="Eliminar">
+</from>
+{% endblock contenidoQueCambia %}   

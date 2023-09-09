@@ -4,14 +4,27 @@
 
 {% block contenidoQueCambia %}
 
-<h1>Lista de Cursos</h1>
+<h1>Lista de Cursos Vieja</h1>
 <ul>
     {% for curso in cursos %}
-    <li> {{curso.nombre}} , {{curso.camada}}</li>
+    <li> {{curso.nombre}} , {{curso.camada}}
+        <a href="{% url 'AppCoder:eliminar-curso' curso.nombre %}">
+            <button>Eliminar</button>
+        </a>
+
+        <a href="{% url 'AppCoder:editar-curso' curso.nombre %}">
+            <button>Editar</button>
+        </a>
+    </li>
 
     {% endfor %}
 </ul>
-<h6>esto es para ver qeu salen otras cosas en el formulario</h6>
+
+<body>
+    <a href="{% url 'AppCoder:cursoformulario' %}">Crear un nuevo Curso</a> 
+    <br>
+    <a href="{% url 'AppCoder:buscar-por-curso' %}">Buscar un Curso</a>
+</body>
 
 {% endblock contenidoQueCambia %}   
     

@@ -6,8 +6,22 @@
 
 <h1>Lista de profesores</h1>
 <ul>
-    {%for profesor in profesores%}
-    <li> {{profesor.nombre}} , {{profesor.apellido}}</li>
-    {%endfor%}
+    {% for profesor in profesores %}
+    <li>
+        {{ profesor.nombre }} , {{ profesor.apellido }}
+        <a href="{% url 'AppCoder:eliminar-profesor' profesor.nombre %}">
+            <button>Eliminar</button>
+        </a>
+        <a href="{% url 'AppCoder:editar-profesor' profesor.nombre %}">
+            <button>Editar</button>
+        </a>
+        
+    </li>
+    {% endfor %}
 </ul>
+<body>
+    <a href="{% url 'AppCoder:profesor-create' %}">Crear un nuevo profesor</a>
+</body>
+    
+
 {% endblock contenidoQueCambia %}

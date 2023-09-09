@@ -1,0 +1,14 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+{% block contenidoQueCambia %}
+
+<h1>Borrar Curso desde Vistas</h1>
+
+<from action=""  method="POST">
+        {% csrf_token %}
+        ¿Estas seguro que deseas borrar el curso {{curso.nombre}} - camada {{curso.camada}}?
+        
+        <input  type="submit value="Eliminar">
+</from>
+{% endblock contenidoQueCambia %}   

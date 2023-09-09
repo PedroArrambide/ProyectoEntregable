@@ -6,10 +6,13 @@
 
 {% block contenidoQueCambia %}
 
+{% if mensaje %}
+    <p>
+        {{mensaje}}
+    </p>
+{% endif %}
 
-
-
-<h1>Este es el titulo del inciio que cambio</h1>
+<h1>Este es el titulo del Inicio que cambio</h1>
 <p> Se ha hereado todo desde la plantilla padre</p>
 <h3>en el hijo, inioc.html, casi no hay nada:)</h3>
 

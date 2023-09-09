@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+<h1> Login </h1>
+<form action="" method="POST">
+    {% csrf_token %}
+        {{form.as_p}}
+    <button type="submit">Inciar sesion</button>
+</form>
+
+<p> si no tenes usuarios, registrate aca:  
+    <a href="{% url 'AppCoder:registro' %}">¡NUEVO USUARIO!</a>
+</p>  
+
+{% endblock contenidoQueCambia %}

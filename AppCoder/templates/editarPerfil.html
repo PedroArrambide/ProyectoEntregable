@@ -1,0 +1,29 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+    <h1>Editar Perfil </h1>
+    <h3>de Usuario</h3>
+ 
+
+    <form action="" method="POST"> {% csrf_token %}
+        <table>
+
+            {{ miFormulario.as_table}}
+        </table>
+        
+        <input type="submit", value="Enviar">
+
+    </form>
+   
+    </a>
+
+    <a href="{% url 'AppCoder:CambiarContrasenia'  %}">
+        <button>Cambiar Contraseña</button>
+    </a>
+
+    </button>   
+{% endblock contenidoQueCambia %}

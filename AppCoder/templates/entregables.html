@@ -9,16 +9,32 @@
 
 
 
-<h1>aca entregables</h1>
+<h1>Lista de entregables</h1>
+
+<body>
+    <a href="{% url 'AppCoder:entregable-create' %}">Entregar uno Nuevo</a> 
+</body>
+
+<br>
+
 <ul>
     {% for entregable in entregables %}
 
-    <li>{{entregable.nombre}},{{entregable.fecha_entrega}}</li>
+    <li>
+        {{entregable.nombre}},{{entregable.fecha_entrega}}
+        <a href="{% url 'AppCoder:eliminar-entregable' entregable.nombre %}">
+            <button>Eliminar</button>
+        </a>
+
+        <a href="{% url 'AppCoder:editar-entregable' entregable.nombre %}">
+            <button>Editar</button>
+        </a>
+    </li>
 
     {% endfor %}
 
 </ul>
 
-<h3>en el hijo, inioc.html, casi no hay nada:)</h3>
+
 
 {% endblock contenidoQueCambia %}

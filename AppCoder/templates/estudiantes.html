@@ -1,23 +1,26 @@
 {% extends 'padre.html' %}
 
-
 {% load static %}
-
 
 {% block contenidoQueCambia %}
 
-
 <h1>Lista de estudiantes</h1>
-
 <ul>
     {% for e in estudiantes %}
+    <li>
+        {{e.nombre}},{{e.apellido}},{{e.email}}
+        <a href="{% url 'AppCoder:eliminar-estudiante' e.nombre %}">
+            <button>Eliminar</button>
+        </a>
 
-    <li>{{e.nombre}},{{e.apellido}},{{e.email}}</li>
-
+        <a href="{% url 'AppCoder:editar-estudiante' e.nombre %}">
+            <button>Editar</button>
+        </a>
+    </li>
     {% endfor %}
-
 </ul>
-
-<h3>para saber que estoy viendo bien</h3>
+<body>
+    <a href="{% url 'AppCoder:estudiante-create' %}">Crear un nuevo Estudiante</a> 
+</body>
 
 {% endblock contenidoQueCambia %}
